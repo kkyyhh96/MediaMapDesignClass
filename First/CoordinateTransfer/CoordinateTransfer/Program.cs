@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,17 @@ namespace CoordinateTransfer
     {
         static void Main(string[] args)
         {
-            Gps gps = new Gps(30.5, 20.5);
+            //源数据和返回数据的路径
+            string inputFilePath = @"D:\Users\KYH\Documents\Pycharm\MediaMapDesign\First\transfer_format.csv";
+            string outputFilePath = @"D:\Users\KYH\Documents\Pycharm\MediaMapDesign\First\result.csv";
+
+            //从源数据中将数据读取出来
+            using (StreamReader sr = new StreamReader(inputFilePath))
+            {
+                Gps gps = new Gps(sr.ReadLine());
+            }
+
             PositionUtil positionUtil = new PositionUtil();
-            gps=PositionUtil.gcj02_To_Bd09(30.5, 20.5);
-            Console.WriteLine(gps.getWgLat().ToString());
-            Console.Read();
         }
         public class Gps
         {
@@ -24,6 +31,11 @@ namespace CoordinateTransfer
             {
                 this.latitude = latitude;
                 this.longitude = lontitude;
+            }
+            public Gps(string gps)
+            {
+                this.latitude = Convert.ToDouble(gps.Split(',')[1]);
+                this.longitude = Convert.ToDouble(gps.Split(',')[2]);
             }
             public double getWgLat()
             {
