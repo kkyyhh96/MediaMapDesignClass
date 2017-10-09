@@ -1,0 +1,7 @@
+D:\Users\KYH\Documents\KYH\学业\大四\多媒体电子地图设计\First\CoordinateTransfer\CoordinateTransfer\obj\Debug\CoordinateTransfer.csprojResolveAssemblyReference.cache
+D:\Users\KYH\Documents\KYH\学业\大四\多媒体电子地图设计\First\CoordinateTransfer\CoordinateTransfer\obj\Debug\CoordinateTransfer.csproj.CoreCompileInputs.cache
+D:\Users\KYH\Documents\KYH\学业\大四\多媒体电子地图设计\First\CoordinateTransfer\CoordinateTransfer\bin\Debug\CoordinateTransfer.exe.config
+D:\Users\KYH\Documents\KYH\学业\大四\多媒体电子地图设计\First\CoordinateTransfer\CoordinateTransfer\bin\Debug\CoordinateTransfer.exe
+D:\Users\KYH\Documents\KYH\学业\大四\多媒体电子地图设计\First\CoordinateTransfer\CoordinateTransfer\bin\Debug\CoordinateTransfer.pdb
+D:\Users\KYH\Documents\KYH\学业\大四\多媒体电子地图设计\First\CoordinateTransfer\CoordinateTransfer\obj\Debug\CoordinateTransfer.exe
+D:\Users\KYH\Documents\KYH\学业\大四\多媒体电子地图设计\First\CoordinateTransfer\CoordinateTransfer\obj\Debug\CoordinateTransfer.pdb
