@@ -11,17 +11,41 @@ namespace CoordinateTransfer
     {
         static void Main(string[] args)
         {
+            List<Gps> gpsList = new List<Gps>();
             //源数据和返回数据的路径
             string inputFilePath = @"D:\Users\KYH\Documents\Pycharm\MediaMapDesign\First\transfer_format.csv";
             string outputFilePath = @"D:\Users\KYH\Documents\Pycharm\MediaMapDesign\First\result.csv";
 
+            PositionUtil positionUtil = new PositionUtil();
             //从源数据中将数据读取出来
             using (StreamReader sr = new StreamReader(inputFilePath))
             {
                 Gps gps = new Gps(sr.ReadLine());
+                while (gps != null)
+                {
+                    gps = PositionUtil.gcj_To_Gps84(gps.getWgLat(), gps.getWgLon());
+                    gpsList.Add(gps);
+                    string gpsLine = sr.ReadLine();
+                    if (gpsLine != null)
+                    {
+                        gps = new Gps(gpsLine);
+                    }
+                    else
+                    {
+                        gps = null;
+                    }
+                }
             }
 
-            PositionUtil positionUtil = new PositionUtil();
+            //将转换后的数据写入文件中
+            using (StreamWriter sw = new StreamWriter(outputFilePath))
+            {
+                for (int i = 0; i < gpsList.Count; i++)
+                {
+                    sw.WriteLine(gpsList[i].getWgLat().ToString() + "," + gpsList[i].getWgLon().ToString());
+                }
+            }
+
         }
         public class Gps
         {
@@ -35,7 +59,7 @@ namespace CoordinateTransfer
             public Gps(string gps)
             {
                 this.latitude = Convert.ToDouble(gps.Split(',')[1]);
-                this.longitude = Convert.ToDouble(gps.Split(',')[2]);
+                this.longitude = Convert.ToDouble(gps.Split(',')[0]);
             }
             public double getWgLat()
             {
