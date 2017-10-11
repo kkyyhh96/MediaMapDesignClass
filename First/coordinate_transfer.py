@@ -107,8 +107,8 @@ class POINT(object):
         self.y=float(str(point).split(',')[1])
 
     def format_point(self):
-        self.x=round(self.x,5)
-        self.y=round(self.y,5)
+        self.x=round(self.x,6)
+        self.y=round(self.y,6)
         self.output="{0},{1}\n".format(self.x,self.y)
 
 
@@ -131,8 +131,8 @@ class coordinate_file(object):
 if __name__ == '__main__':
     # Set region bound and interval
     # minLat,minLon,maxLat,maxLon,interval
-    region = "39.915,116.405,39.975,116.415"
-    location = LocationDivide(region, 0.001)
+    region = "17,73,53,135"
+    location = LocationDivide(region, 0.5)
     # Seperate grid into blocks
     location.compute_block()
     # Read coordinates
